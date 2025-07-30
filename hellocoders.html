@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creative Animated Intro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display:block;
+      background-color: white;
+      color: black;
+      font-family: 'Fira Code', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: auto;
+    }
+
+    .wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .slash {
+      font-size: 2.5rem;
+      color: #007BFF;
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .text {
+      font-size: 2rem;
+      border-right: 2px solid black;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .typing {
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @keyframes typing {
+      from { width: 0; opacity: 1; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <span class="slash" id="leftSlash">/</span>
+    <div class="text" id="text"></div>
+    <span class="slash" id="rightSlash">/</span>
+  </div>
+
+  <script>
+    const textEl = document.getElementById('text');
+    const leftSlash = document.getElementById('leftSlash');
+    const rightSlash = document.getElementById('rightSlash');
+
+    const lines = ["Hello <Coders/>", "I'm Rahma Waleed"];
+    let index = 0;
+
+    function animateLine(line) {
+      // Reset
+      textEl.classList.remove('typing');
+      textEl.style.width = '0ch';
+      textEl.style.opacity = '0';
+      textEl.style.animation = 'none';
+      leftSlash.style.transform = 'scaleX(0)';
+      rightSlash.style.transform = 'scaleX(0)';
+
+      setTimeout(() => {
+        leftSlash.style.transform = 'scaleX(1)';
+        rightSlash.style.transform = 'scaleX(1)';
+      }, 100);
+
+      setTimeout(() => {
+        textEl.textContent = line;
+        const length = line.length;
+        textEl.style.width = length + 'ch';
+        textEl.style.animation = `typing 2s steps(${length}, end) forwards, blink 0.7s step-end infinite`;
+        textEl.classList.add('typing');
+      }, 500);
+    }
+
+    animateLine(lines[index]);
+
+    setTimeout(() => {
+      index++;
+      animateLine(lines[index]);
+    }, 3500);
+  </script>
+</body>
+</html>
