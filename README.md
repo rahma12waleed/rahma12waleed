@@ -1,7 +1,7 @@
 <div align="center" width="50">
 
 <img src="https://github.com/SP-XD/SP-XD/blob/main/images/hellocoders_rounded.gif?raw=true" href="https://github.com/rahma12waleed" alt="Hello Coders" width="60%"/> <br>
-<img src="https://github.com/SP-XD/SP-XD/blob/main/images/dev-working_rounded.gif?raw=true" href="https://github.com/rahma12waleed" alt="Workspace"  width="40%"/><br> 
+<br> 
 
 </div>
 
@@ -20,7 +20,7 @@
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=flat&logo=git&logoColor=white)
 
 ```dart
-// tools_I_use organized
+// tools_I_use 
 
 class About extends Me { 
   const myTools = {  
